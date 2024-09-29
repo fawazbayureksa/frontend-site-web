@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home';
+import Customer from './pages/customer/Customer';
+import Product from './pages/product/Product';
+import Sale from './pages/sale/Sale';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Sidenav from './pages/components/Sidenav';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Sidenav >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/customer" element={<Customer />} />
+              <Route path="/product" element={<Product />} />
+              <Route path="/sale" element={<Sale />} />
+            </Routes>
+        </Sidenav>
+    </BrowserRouter>
   );
 }
 
